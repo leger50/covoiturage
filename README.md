@@ -7,6 +7,9 @@ Je souhaite un code bien documenté et clair<br />
 Merci de respecter la date limte de remise du travail !!!! <br /> <br />
 <b> ⊂(◉‿◉)つ <b> <br />
 
+Date Limite : ???
+Adresse de rendu : ???
+
 Classes css :
 -btn
 -icone
