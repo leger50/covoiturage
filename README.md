@@ -15,4 +15,5 @@ Classes css :
 -icone
 
 A faire :
+- soigner gestion des erreurs (code retour : Ville/Parcours)
 - css tableau
