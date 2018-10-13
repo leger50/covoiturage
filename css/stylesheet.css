@@ -1,11 +1,11 @@
 a{
 	color:#222222;
-	text-decoration: none;		
+	text-decoration: none;
 }
 
 a:visited{
 	color:#222222;
-	text-decoration: none;		
+	text-decoration: none;
 }
 body{
 	background-color:#222222;;
@@ -18,9 +18,9 @@ body{
 #header{
 	width:100%;
 	height:230px;
-	background-color:#222222;	
+	background-color:#222222;
 	box-shadow:0 0 20px #000000;
-	border-bottom:solid #444444 8px;		
+	border-bottom:solid #444444 8px;
 }
 .colonne {
   display:table-cell;
@@ -34,8 +34,8 @@ body{
 	vertical-align:middle;
 	color:#CCCCCC;
 	font-size:32px;
-	font-weight:bold;		
-	text-shadow:1px 1px #111111, 2px 2px #000000;	
+	font-weight:bold;
+	text-shadow:1px 1px #111111, 2px 2px #000000;
 }
 
 #entete{
@@ -62,10 +62,10 @@ body{
 #connect a{
 	color:#222222;
 	font-weight:bold;
-	text-decoration: none;	
+	text-decoration: none;
 }
 #connect a :visited{
-	color:#222222;	
+	color:#222222;
 	font-weight:bold;
 	text-decoration: none;
 }
@@ -79,7 +79,7 @@ body{
 
 #menu{
 	float : left;
-	width: 20%;	
+	width: 20%;
 	min-height:355px;
 	margin-left: 3px;
 	color:#222222;
@@ -90,7 +90,7 @@ body{
 }
 #menu a{
 	color:#222222;
-	text-decoration: none;	
+	text-decoration: none;
 }
 #menu a :visited{
 	color:#222222;
@@ -99,7 +99,7 @@ body{
 
 #menuInt{
 	margin-top: 2px;
-	margin-left: 50px;	
+	margin-left: 50px;
 	min-height:367px;
 }
 
@@ -112,8 +112,8 @@ body{
 	color:#222222;
 }
 
-#spacer {     
-  clear: both; 
+#spacer {
+  clear: both;
 }
 
 #footer{
@@ -121,12 +121,12 @@ body{
 	height:50px;
 	padding-top:10px;
 	background-color:#222222;
-	border-top:solid #444444 8px;	
+	border-top:solid #444444 8px;
 	padding-top:20px;
 	position:absolute;
 	bottom:0px;
 	box-shadow:0 -5px 5px #858585;
-	position:relative;	
+	position:relative;
 	color:#CCCCCC;
 	font-size:12px;
 	text-align:center;
@@ -141,11 +141,11 @@ body{
 
 label{
 	font-size:12pt;
-   font-weight:bold;	
+   font-weight:bold;
 }
 
 h1{
-	text-shadow:1px 1px 2px #333333;	
+	text-shadow:1px 1px 2px #333333;
 }
 
 
@@ -161,6 +161,19 @@ h1{
 #connect a{
 	color:#222222;
 	font-weight:bold;
-	text-decoration: none;	
+	text-decoration: none;
 }
-#connect a :visited{
+#connect a :visited{}
+
+#listerVille {
+	display : flex;
+	flex-direction: column;
+}
+
+#listerVille table{
+	border-collapse : collapse;
+}
+
+#listerVille table td{
+	border: 1px solid black;
+}
