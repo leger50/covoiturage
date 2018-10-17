@@ -51,4 +51,20 @@ class VilleManager{
 		$requete->closeCursor();
 		return $listeVilles;
 	}
+
+	public function getVille($numVille){
+
+		$sql = 'SELECT vil_num, vil_nom FROM ville WHERE vil_num = :num';
+
+		$requete = $this->db->prepare($sql);
+		$requete->bindValue(':num', $numVille);
+		$requete->execute();
+
+		$ville = $requete->fetch(PDO::FETCH_OBJ);
+
+		$requete->closeCursor();
+
+		$newVille = new Ville($ville);
+		return $newVille;
+	}
 }

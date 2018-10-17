@@ -45,18 +45,18 @@ class ParcoursManager{
 		return $parcours->getVille1Parcours() !== $parcours->getVille2Parcours();
 	}
 
-	/*public function getAllVilles(){
+	public function getAllParcours(){
 
-		$sql = 'SELECT vil_num, vil_nom FROM ville';
+		$sql = 'SELECT par_num, par_km, vil_num1, vil_num2 FROM parcours';
 
 		$requete = $this->db->prepare($sql);
 		$requete->execute();
 
-		while($ville = $requete->fetch(PDO::FETCH_OBJ)){
-			$listeVilles[] = new Ville($ville);
+		while($parcours = $requete->fetch(PDO::FETCH_OBJ)){
+			$listeParcours[] = new Parcours($parcours);
 		}
 
 		$requete->closeCursor();
-		return $listeVilles;
-	}*/
+		return $listeParcours;
+	}
 }
