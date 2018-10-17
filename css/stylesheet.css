@@ -165,15 +165,15 @@ h1{
 }
 #connect a :visited{}
 
-#listerVille {
+#listerVille, #listerParcours {
 	display : flex;
 	flex-direction: column;
 }
 
-#listerVille table{
+#listerVille table, #listerParcours table{
 	border-collapse : collapse;
 }
 
-#listerVille table td{
+#listerVille table td, #listerParcours table td{
 	border: 1px solid black;
 }
