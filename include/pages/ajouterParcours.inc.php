@@ -28,7 +28,7 @@ if(empty($_POST['par_km'])){
     </br>
 
   <label for="par_km">Nombre de kilomètre(s) : </label>
-    <input type="number" id="par_km" name="par_km" required/>
+    <input type="number" id="par_km" name="par_km" min="1" placeholder="Min: 1" required/>
   </br>
 
   <input type="submit" value="Valider" class="btn">
