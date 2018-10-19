@@ -15,7 +15,9 @@ Classes css :
 -icone
 
 A faire :
+- Tester scénario ajouter Personne
 - faire transition pour chaque ajout
+- css ajouter Personne
 - passer en private les fonctions non publics
 - soigner gestion des erreurs (code retour : Ville/Parcours)
 - css tableau
