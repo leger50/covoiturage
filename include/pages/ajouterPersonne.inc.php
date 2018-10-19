@@ -111,9 +111,9 @@ if(!isset($_SESSION['ajoutPersonne'])){
     $retour = $etudiantManager->addEtudiant($etudiant);
 
     if($retour){
-      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout étudiant'> L'étudiant '".$etudiant->getPersonneEtudiant()->getNomPersonne()." ".$etudiant->getPersonneEtudiant()->getPrenomPersonne()."' a été ajouté";
+      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout étudiant'> L'étudiant '".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."' a été ajouté";
     }else{
-      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout étudiant'> L'étudiant '".$etudiant->getPersonneEtudiant()->getNomPersonne()." ".$etudiant->getPersonneEtudiant()->getPrenomPersonne()."' existe déjà";
+      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout étudiant'> L'étudiant '".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."' existe déjà";
     }
 
   }elseif(!empty($_POST['sal_telprof'])){
@@ -123,9 +123,9 @@ if(!isset($_SESSION['ajoutPersonne'])){
     $retour = $salarieManager->addSalarie($salarie);
 
     if($retour){
-      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout salarié'> Le salarié '".$salarie->getPersonneSalarie()->getNomPersonne()." ".$salarie->getPersonneSalarie()->getPrenomPersonne()."' a été ajouté";
+      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout salarié'> Le salarié '".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."' a été ajouté";
     }else{
-      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout salarié'> Le salarié '".$salarie->getPersonneSalarie()->getNomPersonne()." ".$salarie->getPersonneSalarie()->getPrenomPersonne()."' existe déjà";
+      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout salarié'> Le salarié '".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."' existe déjà";
     }
   }
 
