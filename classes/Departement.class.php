@@ -2,7 +2,7 @@
 class Departement{
 	private $num;
 	private $nom;
-	private $villeNum
+	private $villeNum;
 
 	public function __construct($valeurs){
 		if(!empty($valeurs)){

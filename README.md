@@ -15,5 +15,11 @@ Classes css :
 -icone
 
 A faire :
+- faire transition pour chaque ajout
+- passer en private les fonctions non publics
 - soigner gestion des erreurs (code retour : Ville/Parcours)
 - css tableau
+
+Etapes de 'Ajouter une personne' :
+ - Faire fonctionner pour Etudiant
+ - PUIS salarie

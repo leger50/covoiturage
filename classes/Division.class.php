@@ -18,7 +18,7 @@ class Division{
 					break;
 
 				case 'div_nom' :
-					$this->setNomVille($valeur);
+					$this->setNomDivision($valeur);
 					break;
 			}
 		}
@@ -34,11 +34,11 @@ class Division{
 		}
 	}
 
-	public function getNomVille(){
+	public function getNomDivision(){
 		return $this->nom;
 	}
 
-	public function setNomVille($nom){
+	public function setNomDivision($nom){
 		$this->nom = $nom;
 	}
 
