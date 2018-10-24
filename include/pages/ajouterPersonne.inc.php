@@ -15,11 +15,11 @@ if(!isset($_SESSION['ajoutPersonne'])){
       </br>
 
       <label for="per_tel">Téléphone : </label>
-        <input type="tel" id="per_tel" name="per_tel" required/>
+        <input type="tel" id="per_tel" name="per_tel" pattern='\d{2}\d{2}\d{2}\d{2}\d{2}' title="0XXXXXXXXX" required/>
       </br>
 
       <label for="per_mail">Mail : </label>
-        <input type="email" id="per_mail" name="per_mail" required/>
+        <input type="email" id="per_mail" name="per_mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="monMail@domain.com" required/>
       </br>
 
       <label for="per_login">Login : </label>
@@ -83,7 +83,7 @@ if(!isset($_SESSION['ajoutPersonne'])){
       <form method="post" action="#">
 
         <label for="sal_telprof">Téléphone professionnel : </label>
-          <input type="tel" id="sal_telprof" name="sal_telprof" required/>
+          <input type="tel" id="sal_telprof" name="sal_telprof" pattern='\d{2}\d{2}\d{2}\d{2}\d{2}' title="0XXXXXXXXX" required/>
         </br>
 
         <label for="fon_num">Fonction : </label>
@@ -111,9 +111,9 @@ if(!isset($_SESSION['ajoutPersonne'])){
     $retour = $etudiantManager->addEtudiant($etudiant);
 
     if($retour){
-      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout étudiant'> L'étudiant '".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."' a été ajouté";
+      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout étudiant'> L'étudiant '<strong>".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."</strong>' a été ajouté";
     }else{
-      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout étudiant'> L'étudiant '".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."' existe déjà";
+      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout étudiant'> L'étudiant '<strong>".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."</strong>' existe déjà";
     }
 
   }elseif(!empty($_POST['sal_telprof'])){
@@ -123,9 +123,9 @@ if(!isset($_SESSION['ajoutPersonne'])){
     $retour = $salarieManager->addSalarie($salarie);
 
     if($retour){
-      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout salarié'> Le salarié '".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."' a été ajouté";
+      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout salarié'> Le salarié '<strong>".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."</strong>' a été ajouté";
     }else{
-      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout salarié'> Le salarié '".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."' existe déjà";
+      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout salarié'> Le salarié '<strong>".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."</strong>' existe déjà";
     }
   }
 

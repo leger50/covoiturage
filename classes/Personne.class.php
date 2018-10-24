@@ -103,8 +103,8 @@ class Personne{
 		return $this->passwd;
 	}
 
-	public function setPasswdPersonne($passwd){ //a encrypter
-		$this->passwd = $passwd;
+	public function setPasswdPersonne($passwd){
+		$this->passwd = createProtectedPassword($passwd);
 	}
 
 }
