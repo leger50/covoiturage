@@ -23,9 +23,9 @@ if(empty($_POST['vil_nom'])){
 	$retour = $villeManager->addVille($ville);
 
   if($retour){
-    echo "<p><img class='icone' src='image/valid.png' alt='Validation ville'> La ville ".$ville->getNomVille()." a été ajoutée";
+    echo "<p><img class='icone' src='image/valid.png' alt='Validation ville'> La ville <strong>".$ville->getNomVille()."</strong> a été ajoutée";
   }else{
-    echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ville'> La ville ".$ville->getNomVille()." existe déjà";
+    echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ville'> La ville <strong>".$ville->getNomVille()."</strong> existe déjà";
   }
 }
 ?>
