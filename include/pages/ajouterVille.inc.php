@@ -24,6 +24,9 @@ if(empty($_POST['vil_nom'])){
 
   if($retour){
     echo "<p><img class='icone' src='image/valid.png' alt='Validation ville'> La ville <strong>".$ville->getNomVille()."</strong> a été ajoutée";
+    echo "<p>Redirection automatique dans 3 secondes</p>";
+    header("Refresh: 3;URL=index.php?page=8");
+
   }else{
     echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ville'> La ville <strong>".$ville->getNomVille()."</strong> existe déjà";
   }

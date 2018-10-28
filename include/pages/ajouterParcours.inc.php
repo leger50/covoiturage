@@ -43,10 +43,15 @@ if(empty($_POST['par_km'])){
 
 	$retour = $parcoursManager->addParcours($parcours);
 
-  if($retour){
-    echo "<p><img class='icone' src='image/valid.png' alt='Validation parcours'> Le parcours a été ajouté";
-  }else{
-    echo "<p><img class='icone' src='image/erreur.png' alt='Erreur parcours'> Le parcours existe déjà ou les noms de ville doivent être différents";
+  if($retour){ ?>
+    <p><img class='icone' src='image/valid.png' alt='Validation parcours'> Le parcours a été ajouté</p>
+    <p>Redirection automatique dans 3 secondes</p>
+    <?php header("Refresh: 3;URL=index.php?page=6");
+
+  }else{ ?>
+    <p><img class='icone' src='image/erreur.png' alt='Erreur parcours'> Le parcours existe déjà ou les noms de ville doivent être différents</p>
+
+  <?php
   }
 }
 ?>

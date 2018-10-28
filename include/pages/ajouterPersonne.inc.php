@@ -111,9 +111,11 @@ if(!isset($_SESSION['ajoutPersonne'])){
     $retour = $etudiantManager->addEtudiant($etudiant);
 
     if($retour){
-      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout étudiant'> L'étudiant '<strong>".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."</strong>' a été ajouté";
+      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout étudiant'> L'étudiant '<strong>".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."</strong>' a été ajouté</p>";
+      echo "<p>Redirection automatique dans 3 secondes</p>";
+      header("Refresh: 3;URL=index.php?page=2");
     }else{
-      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout étudiant'> L'étudiant '<strong>".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."</strong>' existe déjà";
+      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout étudiant'> L'étudiant '<strong>".$etudiant->getPersonneEtudiant()->getPrenomPersonne()." ".$etudiant->getPersonneEtudiant()->getNomPersonne()."</strong>' existe déjà</p>";
     }
 
   }elseif(!empty($_POST['sal_telprof'])){
@@ -123,9 +125,11 @@ if(!isset($_SESSION['ajoutPersonne'])){
     $retour = $salarieManager->addSalarie($salarie);
 
     if($retour){
-      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout salarié'> Le salarié '<strong>".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."</strong>' a été ajouté";
+      echo "<p><img class='icone' src='image/valid.png' alt='Validation ajout salarié'> Le salarié '<strong>".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."</strong>' a été ajouté</p>";
+      echo "<p>Redirection automatique dans 3 secondes</p>";
+      header("Refresh: 3;URL=index.php?page=2");
     }else{
-      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout salarié'> Le salarié '<strong>".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."</strong>' existe déjà";
+      echo "<p><img class='icone' src='image/erreur.png' alt='Erreur ajout salarié'> Le salarié '<strong>".$salarie->getPersonneSalarie()->getPrenomPersonne()." ".$salarie->getPersonneSalarie()->getNomPersonne()."</strong>' existe déjà</p>";
     }
   }
 
