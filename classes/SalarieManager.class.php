@@ -33,4 +33,19 @@ class SalarieManager{
 		return $retour;
 	}
 
+	public function getSalarie($personne, $numSalarie){
+
+		$sql = 'SELECT sal_telprof, fon_num FROM salarie WHERE per_num = :num';
+
+		$requete = $this->db->prepare($sql);
+		$requete->bindValue(':num', $numSalarie);
+		$requete->execute();
+
+		$salarie = $requete->fetch(PDO::FETCH_OBJ);
+		$requete->closeCursor();
+
+		$newSalarie = new Salarie($personne, $salarie);
+		return $newSalarie;
+	}
+
 }

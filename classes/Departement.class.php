@@ -23,7 +23,7 @@ class Departement{
 					break;
 
 				case 'vil_num' :
-					$this->setNumVilleDivision($valeur);
+					$this->setNumVilleDepartement($valeur);
 					break;
 			}
 		}
@@ -47,11 +47,11 @@ class Departement{
 		$this->nom = $nom;
 	}
 
-	public function getNumVilleDivision(){
+	public function getNumVilleDepartement(){
 		return $this->villeNum;
 	}
 
-	public function setNumVilleDivision($villeNum){
+	public function setNumVilleDepartement($villeNum){
 		if(is_numeric($villeNum)){
 			$this->villeNum = $villeNum;
 		}

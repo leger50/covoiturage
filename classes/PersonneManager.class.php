@@ -43,34 +43,48 @@ class PersonneManager{
 		return $resultat != null;
 	}
 
-	/*public function getAllVilles(){
+	public function getAllPersonnes(){
 
-		$sql = 'SELECT vil_num, vil_nom FROM ville';
+		$sql = 'SELECT per_num, per_nom, per_prenom FROM personne';
 
 		$requete = $this->db->prepare($sql);
 		$requete->execute();
 
-		while($ville = $requete->fetch(PDO::FETCH_OBJ)){
-			$listeVilles[] = new Ville($ville);
+		while($personne = $requete->fetch(PDO::FETCH_OBJ)){
+			$listePersonnes[] = new Personne($personne);
 		}
 
 		$requete->closeCursor();
-		return $listeVilles;
+		return $listePersonnes;
 	}
 
-	public function getVille($numVille){
-
-		$sql = 'SELECT vil_num, vil_nom FROM ville WHERE vil_num = :num';
+	public function estEtudiant($numPersonne){
+		$sql = 'SELECT per_num FROM etudiant WHERE per_num = :num';
 
 		$requete = $this->db->prepare($sql);
-		$requete->bindValue(':num', $numVille);
+		$requete->bindValue(':num', $numPersonne);
+
 		$requete->execute();
 
-		$ville = $requete->fetch(PDO::FETCH_OBJ);
+		$resultat = $requete->fetch(PDO::FETCH_OBJ);
+		$requete->closeCursor();
+
+		return $resultat != null;
+	}
+
+	public function getPersonne($numPersonne){
+
+		$sql = 'SELECT per_num, per_nom, per_prenom, per_tel, per_mail, per_login FROM personne WHERE per_num = :num';
+
+		$requete = $this->db->prepare($sql);
+		$requete->bindValue(':num', $numPersonne);
+		$requete->execute();
+
+		$personne = $requete->fetch(PDO::FETCH_OBJ);
 
 		$requete->closeCursor();
 
-		$newVille = new Ville($ville);
-		return $newVille;
-	}*/
+		$newPersonne = new Personne($personne);
+		return $newPersonne;
+	}
 }
