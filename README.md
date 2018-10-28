@@ -15,6 +15,5 @@ Classes css :
 -icone
 
 A faire :
-- faire transition pour chaque ajout
 - passer en private les fonctions non publics
 - soigner gestion des erreurs (code retour : Ville/Parcours)
