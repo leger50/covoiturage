@@ -6,7 +6,7 @@ $lesParcours = $parcoursManager->getAllParcours();
 $villeManager = new VilleManager($pdo);
 ?>
 
-<div id="listerParcours">
+<div class="lister">
   <h1>Lister des parcours proposés</h1>
 
   <p>Actuellement <?php echo count($lesParcours)?> parcours sont enregistrés</p>

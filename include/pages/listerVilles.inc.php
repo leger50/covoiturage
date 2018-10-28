@@ -4,7 +4,7 @@ $villeManager = new VilleManager($pdo);
 $villes = $villeManager->getAllVilles();
 ?>
 
-<div id="listerVille">
+<div class="lister">
   <h1>Lister des villes</h1>
 
   <p>Actuellement <?php echo count($villes)?> villes sont enregistrées</p>

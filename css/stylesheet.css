@@ -165,15 +165,15 @@ h1{
 }
 #connect a :visited{}
 
-#listerVille, #listerParcours {
+.lister, #detailsEtudiant, #detailsSalarie {
 	display : flex;
 	flex-direction: column;
 }
 
-#listerVille table, #listerParcours table{
+.lister table, #detailsEtudiant table, #detailsSalarie table{
 	border-collapse : collapse;
 }
 
-#listerVille table td, #listerParcours table td{
+.lister table td, #detailsEtudiant table td, #detailsSalarie table td{
 	border: 1px solid black;
 }
