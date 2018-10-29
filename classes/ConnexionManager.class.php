@@ -18,9 +18,13 @@ class ConnexionManager{
 		$requete->closeCursor();
 
     if($resultat != null){
-      return $passwordProtected == $resultat->per_pwd;
+      return $passwordProtected === $resultat->per_pwd;
     }else{
       return false;
     }
+  }
+
+  public function captchaEstValide($nb1, $nb2, $reponse){
+    return ($nb1 + $nb2) == $reponse;
   }
 }
