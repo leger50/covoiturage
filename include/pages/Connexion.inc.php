@@ -19,7 +19,7 @@ if (!isset($_SESSION['login'])){
         header("Refresh: 2;URL=index.php");
 
       }else{
-        echo "<div class='messageErreur'><p>Captcha saisi invalide</p></div>";
+        echo "<div class='messageErreur'><p>Captcha invalide</p></div>";
         $_SESSION['affichageFormulaire'] = true;
       }
 
