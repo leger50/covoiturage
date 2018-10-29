@@ -15,7 +15,5 @@ Classes css :
 -icone
 
 A faire :
-- Connexion : login/mp/capcha invalide indiqué directement sur le formulaire
-- Connexion : limiter accès aux pages
 - passer en private les fonctions non publics
 - soigner gestion des erreurs (code retour : Ville/Parcours)

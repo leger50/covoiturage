@@ -177,3 +177,13 @@ h1{
 .lister table td, #detailsEtudiant table td, #detailsSalarie table td{
 	border: 1px solid black;
 }
+
+.messageErreur{
+	display : flex;
+	justify-content: center;
+}
+
+.messageErreur p{
+	border : 3px solid red;
+	width : 30%;
+}
