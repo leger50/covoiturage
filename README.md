@@ -15,5 +15,7 @@ Classes css :
 -icone
 
 A faire :
+- verifier que l'on ne peut saisir que des dates dans l'ajout d'un trajet (pattern html ?)
+- css pour chaque page (comme dans le livret)
 - passer en private les fonctions non publics
 - soigner gestion des erreurs (code retour : Ville/Parcours)

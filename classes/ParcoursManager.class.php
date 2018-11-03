@@ -59,4 +59,65 @@ class ParcoursManager{
 		$requete->closeCursor();
 		return $listeParcours;
 	}
+
+	public function getAllVillesParcours(){
+
+		$sql = 'SELECT T.vil_num, vil_nom FROM (
+							SELECT vil_num1 as vil_num FROM parcours
+							UNION
+							SELECT vil_num2 FROM parcours)T
+						INNER JOIN ville v ON (v.vil_num = T.vil_num)';
+
+		$requete = $this->db->prepare($sql);
+		$requete->execute();
+
+		while($ville = $requete->fetch(PDO::FETCH_OBJ)){
+			$listeVilles[] = new Ville($ville);
+		}
+
+		$requete->closeCursor();
+		return $listeVilles;
+	}
+
+	public function getVillesArriveeParcours($numDepart){
+
+		$sql = 'SELECT T.vil_num, v.vil_nom FROM(
+					    SELECT vil_num1 as vil_num FROM parcours
+					    WHERE vil_num2 = :numDepart
+					    UNION
+					    SELECT vil_num2 FROM parcours
+					    WHERE vil_num1 = :numDepart)T
+						INNER JOIN ville v ON (v.vil_num = T.vil_num)';
+
+		$requete = $this->db->prepare($sql);
+		$requete->bindValue(':numDepart', $numDepart);
+
+		$requete->execute();
+
+		while($ville = $requete->fetch(PDO::FETCH_OBJ)){
+			$listeVilles[] = new Ville($ville);
+		}
+
+		$requete->closeCursor();
+		return $listeVilles;
+	}
+
+	public function getParcours($numVilleDepart, $numVilleArrivee){
+		$sql = 'SELECT par_num, 0 as pro_sens FROM parcours
+						WHERE (vil_num1 = :numDepart AND vil_num2 = :numArrivee)
+						UNION
+						SELECT par_num, 1 as pro_sens FROM parcours
+						WHERE (vil_num1 = :numArrivee AND vil_num2 = :numDepart)';
+
+		$requete = $this->db->prepare($sql);
+		$requete->bindValue(':numDepart', $numVilleDepart);
+		$requete->bindValue(':numArrivee', $numVilleArrivee);
+
+		$requete->execute();
+
+		$infosParcours = $requete->fetch(PDO::FETCH_OBJ);
+
+		$requete->closeCursor();
+		return $infosParcours;
+	}
 }

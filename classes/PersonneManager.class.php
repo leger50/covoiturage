@@ -87,4 +87,18 @@ class PersonneManager{
 		$newPersonne = new Personne($personne);
 		return $newPersonne;
 	}
+
+	public function getNumPersonneWithLogin($loginPersonne){
+		$sql = 'SELECT per_num FROM personne WHERE per_login = :login';
+
+		$requete = $this->db->prepare($sql);
+		$requete->bindValue(':login', $loginPersonne);
+		$requete->execute();
+
+		$resultat = $requete->fetch(PDO::FETCH_OBJ);
+
+		$requete->closeCursor();
+
+		return $resultat->per_num;
+	}
 }
