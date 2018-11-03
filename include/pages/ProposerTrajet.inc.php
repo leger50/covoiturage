@@ -48,11 +48,11 @@
       </br>
 
       <label for="pro_date">Date de départ : </label>
-        <input type="date" id="pro_date" name="pro_date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required/>
+        <input type="date" id="pro_date" name="pro_date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" value='<?php echo date('Y-m-d');?>' min='<?php echo date('Y-m-d');?>'required/>
       </br>
 
       <label for="pro_time">Heure de départ : </label>
-        <input type="time" id="pro_time" name="pro_time" pattern="[0-9]{2}:[0-9]{2}" required/>
+        <input type="time" id="pro_time" name="pro_time" pattern="[0-9]{2}:[0-9]{2}" value='<?php echo date('H:i');?>'required/>
       </br>
 
       <label for="pro_place">Nombre de places : </label>
@@ -63,11 +63,8 @@
 
     </form>
 
-
     <?php
     }else{
-      echo $_POST['pro_date'];
-      echo $_POST['pro_time'];
       $propose = new Propose($_POST);
 
     	$parcoursManager = new ParcoursManager($pdo);
@@ -86,7 +83,7 @@
       if($retour){ ?>
         <p><img class='icone' src='image/valid.png' alt='Validation proposition trajet'> Le trajet a été ajouté</p>
         <p>Redirection automatique dans 3 secondes</p>
-        <?php //header("Refresh: 3;URL=index.php?page=6");
+        <?php header("Refresh: 3;URL=index.php");
 
       }else{ ?>
         <p><img class='icone' src='image/erreur.png' alt='Erreur ajout proposition trajet'> Erreur Interne : le trajet n'a pu être ajouté</p>
