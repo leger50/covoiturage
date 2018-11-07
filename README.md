@@ -15,6 +15,7 @@ Classes css :
 -icone
 
 A faire :
+- Ajouter la ville du département dans 'ajouterPersonneEtudiant'
 - css pour chaque page (comme dans le livret)
 - passer en private les fonctions non publics
 - soigner gestion des erreurs (code retour : Ville/Parcours)

@@ -22,4 +22,55 @@ class ProposeManager{
 
 		return $retour;
 	}
+
+	public function getAllVillesDepart(){
+		$sql = 'SELECT T.vil_num, v.vil_nom FROM(
+							SELECT pa.vil_num1 as vil_num FROM propose po
+							INNER JOIN parcours pa ON (po.par_num = pa.par_num)
+							WHERE po.pro_sens = 0
+							UNION
+							SELECT pa.vil_num2 FROM propose po
+							INNER JOIN parcours pa ON (po.par_num = pa.par_num)
+							WHERE po.pro_sens = 1)T
+						INNER JOIN ville v ON (v.vil_num = T.vil_num)';
+
+		$requete = $this->db->prepare($sql);
+		$requete->execute();
+
+		while($ville = $requete->fetch(PDO::FETCH_OBJ)){
+			$listeVilles[] = new Ville($ville);
+		}
+
+		$requete->closeCursor();
+		return $listeVilles;
+	}
+
+	public function rechercherTrajet($numParcours, $dateDepart, $heureDepart, $precision, $sensParcours){
+		$sql = 'SELECT po.pro_date, po.pro_time, po.pro_place, po.per_num FROM propose po
+						INNER JOIN parcours pa ON(pa.par_num = po.par_num)
+						WHERE po.par_num = :numParcours AND po.pro_sens = :sens AND pro_date >= DATE_ADD(:dateDepart, INTERVAL -(:precision) DAY) AND pro_date <= DATE_ADD(:dateDepart, INTERVAL +(:precision) DAY) AND HOUR(pro_time) >= :heureDepart
+						ORDER BY po.pro_date, po.pro_time';
+
+		$requete = $this->db->prepare($sql);
+		$requete->bindValue(':numParcours', $numParcours);
+		$requete->bindValue(':sens', $sensParcours);
+		$requete->bindValue(':dateDepart', $dateDepart);
+		$requete->bindValue(':heureDepart', $heureDepart);
+		$requete->bindValue(':precision', $precision);
+
+		$requete->execute();
+
+		while($trajet = $requete->fetch(PDO::FETCH_OBJ)){
+			$listeTrajets[] = $trajet;
+		}
+
+		$requete->closeCursor();
+
+		if(empty($listeTrajets)){
+			return null;
+		}
+
+		return $listeTrajets;
+	}
+
 }
