@@ -83,6 +83,10 @@
       $proposeManager = new ProposeManager($pdo);
       $listeTrajets = $proposeManager->rechercherTrajet($numParcours, $_POST['pro_date'], $_POST['pro_time'], $_POST['precision_date'], $sensParcours);
 
+      $villeManager = new VilleManager($pdo);
+      $villeDepart = $villeManager->getVille($_POST['ville_depart']);
+      $villeArrivee = $villeManager->getVille($_POST['ville_arrivee']);
+
       if($listeTrajets != null){
       ?>
 
@@ -100,12 +104,12 @@
 
           <?php foreach($listeTrajets as $trajet) { ?>
             <tr>
-              <td><?php echo $_POST['ville_depart']?></td>
-              <td><?php echo $_POST['ville_arrivee']?></td>
-              <td><?php echo $trajet->pro_date?></td>
+              <td><?php echo $villeDepart->getNomVille()?></td>
+              <td><?php echo $villeArrivee->getNomVille()?></td>
+              <td><?php echo getFrenchDate($trajet->pro_date)?></td>
               <td><?php echo $trajet->pro_time?></td>
               <td><?php echo $trajet->pro_place?></td>
-              <td><?php echo $trajet->per_num?></td>
+              <td><?php echo $trajet->per_prenom." ".$trajet->per_nom;?></td>
             </tr>
           <?php } ?>
 
@@ -113,8 +117,9 @@
       </div>
 
     <?php
-      }else{
-        echo "erreur";
+      }else{ ?>
+        <p><img class = 'icone' src='image/erreur.png' alt='Pas de trajets'> Désolé, pas de trajets disponible !</p>
+    <?php
       }
     }
   } ?>

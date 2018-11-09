@@ -46,10 +46,12 @@ class ProposeManager{
 	}
 
 	public function rechercherTrajet($numParcours, $dateDepart, $heureDepart, $precision, $sensParcours){
-		$sql = 'SELECT po.pro_date, po.pro_time, po.pro_place, po.per_num FROM propose po
-						INNER JOIN parcours pa ON(pa.par_num = po.par_num)
-						WHERE po.par_num = :numParcours AND po.pro_sens = :sens AND pro_date >= DATE_ADD(:dateDepart, INTERVAL -(:precision) DAY) AND pro_date <= DATE_ADD(:dateDepart, INTERVAL +(:precision) DAY) AND HOUR(pro_time) >= :heureDepart
-						ORDER BY po.pro_date, po.pro_time';
+		$sql = 'SELECT T.pro_date, T.pro_time, T.pro_place, p.per_nom, p.per_prenom FROM(
+							SELECT po.pro_date, po.pro_time, po.pro_place, po.per_num FROM propose po
+							INNER JOIN parcours pa ON(pa.par_num = po.par_num)
+							WHERE po.par_num = :numParcours AND po.pro_sens = :sens AND pro_date >= DATE_ADD(:dateDepart, INTERVAL -(:precision) DAY) AND pro_date <= DATE_ADD(:dateDepart, INTERVAL +(:precision) DAY) AND HOUR(pro_time) >= :heureDepart)T
+						INNER JOIN personne p ON (p.per_num = T.per_num)
+						ORDER BY T.pro_date, T.pro_time';
 
 		$requete = $this->db->prepare($sql);
 		$requete->bindValue(':numParcours', $numParcours);
