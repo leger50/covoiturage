@@ -47,7 +47,9 @@ if(!isset($_SESSION['ajoutPersonne'])){
       $listeDivisions = $divisionManager->getAllDivisions();
 
       $departementManager = new DepartementManager($pdo);
-      $listeDepartements = $departementManager->getAllDepartements(); ?>
+      $listeDepartements = $departementManager->getAllDepartements();
+
+      $villeManager = new VilleManager($pdo);?>
 
       <h1>Ajouter un étudiant</h1>
 
@@ -64,7 +66,8 @@ if(!isset($_SESSION['ajoutPersonne'])){
         <label for="dep_num">Département : </label>
           <select name="dep_num" id="dep_num">
             <?php foreach ($listeDepartements as $departement) {
-              echo "<option value=".$departement->getNumDepartement().">".$departement->getNomDepartement()."</option>\n";
+              $ville = $villeManager->getVille($departement->getNumVilleDepartement());
+              echo "<option value=".$departement->getNumDepartement().">".$departement->getNomDepartement()." - ".$ville->getNomVille()."</option>\n";
             }?>
           </select>
         </br>
