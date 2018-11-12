@@ -87,6 +87,8 @@
       $villeDepart = $villeManager->getVille($_POST['ville_depart']);
       $villeArrivee = $villeManager->getVille($_POST['ville_arrivee']);
 
+      $avisManager = new AvisManager($pdo);
+
       if($listeTrajets != null){
       ?>
 
@@ -102,14 +104,24 @@
             <th>Nom du covoitureur</th>
           <tr>
 
-          <?php foreach($listeTrajets as $trajet) { ?>
+          <?php foreach($listeTrajets as $trajet) {
+            $moyennePersonne = $avisManager->getAverageOfPerson($trajet->per_num);
+            $dernierAvis = $avisManager->getLastAvisOnPerson($trajet->per_num);?>
             <tr>
-              <td><?php echo $villeDepart->getNomVille()?></td>
-              <td><?php echo $villeArrivee->getNomVille()?></td>
-              <td><?php echo getFrenchDate($trajet->pro_date)?></td>
-              <td><?php echo $trajet->pro_time?></td>
-              <td><?php echo $trajet->pro_place?></td>
-              <td><?php echo $trajet->per_prenom." ".$trajet->per_nom;?></td>
+              <td><?php echo $villeDepart->getNomVille();?></td>
+              <td><?php echo $villeArrivee->getNomVille();?></td>
+              <td><?php echo getFrenchDate($trajet->pro_date);?></td>
+              <td><?php echo $trajet->pro_time;?></td>
+              <td><?php echo $trajet->pro_place;?></td>
+              <td>
+                <a class="bulleInfos" href="">
+                   <?php echo $trajet->per_prenom." ".$trajet->per_nom;?>
+                   <span>
+                     <p>Moyenne des avis : <?php echo $moyennePersonne;?></p>
+                     <p>Dernier avis : <?php echo $dernierAvis;?></p>
+                   </span>
+                </a>
+              </td>
             </tr>
           <?php } ?>
 

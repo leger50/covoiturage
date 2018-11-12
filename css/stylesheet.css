@@ -187,3 +187,39 @@ h1{
 	border : 3px solid red;
 	width : 30%;
 }
+
+/*Bulle d'infos*/
+.bulleInfos
+{
+  text-decoration:none;
+  position:relative;
+}
+
+
+.bulleInfos span
+{
+  display:none;
+
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  color:black;
+  background:white;
+}
+
+.bulleInfos:hover span
+{
+  display:block;
+  position:absolute;
+  top:-10;
+  left:-10;
+  z-index:1000;
+  width:auto;
+  min-width:200%;
+  min-height:50%;
+  border:1px solid black;
+  margin-top:5%;
+  margin-left:5%;
+  overflow:hidden;
+  padding:5%;
+}
