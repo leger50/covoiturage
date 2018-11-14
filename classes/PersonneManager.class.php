@@ -28,6 +28,24 @@ class PersonneManager{
 		}
 	}
 
+	public function updatePersonne($idPersonne, $personne){
+		$sql = 'UPDATE personne SET per_nom = :nom, per_prenom = :prenom, per_tel = :tel, per_mail = :mail, per_login = :login
+						WHERE per_num = :num';
+		$requete = $this->db->prepare($sql);
+
+		$requete->bindValue(':num', $idPersonne);
+		$requete->bindValue(':nom', $personne->getNomPersonne());
+		$requete->bindValue(':prenom', $personne->getPrenomPersonne());
+		$requete->bindValue(':tel', $personne->getTelPersonne());
+		$requete->bindValue(':mail', $personne->getMailPersonne());
+		$requete->bindValue(':login', $personne->getLoginPersonne());
+
+		$retour=$requete->execute();
+		$requete->closeCursor();
+
+		return $retour;
+	}
+
 	public function supprimerPersonne($idPersonne){
 
 			$sql = 'DELETE FROM avis WHERE per_num = :num';
