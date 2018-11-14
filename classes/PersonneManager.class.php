@@ -28,6 +28,47 @@ class PersonneManager{
 		}
 	}
 
+	public function supprimerPersonne($idPersonne){
+
+			$sql = 'DELETE FROM avis WHERE per_num = :num';
+			$requete = $this->db->prepare($sql);
+			$requete->bindValue(':num', $idPersonne);
+			$retour=$requete->execute();
+			$requete->closeCursor();
+
+			$sql = 'DELETE FROM avis WHERE per_per_num = :num';
+			$requete = $this->db->prepare($sql);
+			$requete->bindValue(':num', $idPersonne);
+			$retour=$requete->execute();
+			$requete->closeCursor();
+
+			$sql = 'DELETE FROM etudiant WHERE per_num = :num';
+			$requete = $this->db->prepare($sql);
+			$requete->bindValue(':num', $idPersonne);
+			$retour=$requete->execute();
+			$requete->closeCursor();
+
+			$sql = 'DELETE FROM salarie WHERE per_num = :num';
+			$requete = $this->db->prepare($sql);
+			$requete->bindValue(':num', $idPersonne);
+			$retour=$requete->execute();
+			$requete->closeCursor();
+
+			$sql = 'DELETE FROM propose WHERE per_num = :num';
+			$requete = $this->db->prepare($sql);
+			$requete->bindValue(':num', $idPersonne);
+			$retour=$requete->execute();
+			$requete->closeCursor();
+
+			$sql = 'DELETE FROM personne WHERE per_num = :num';
+			$requete = $this->db->prepare($sql);
+			$requete->bindValue(':num', $idPersonne);
+			$retour=$requete->execute();
+			$requete->closeCursor();
+
+			return $retour;
+	}
+
 	public function personneExiste($personne){
 		$sql = 'SELECT per_num FROM personne WHERE per_mail = :mail OR per_login = :login';
 
@@ -73,7 +114,6 @@ class PersonneManager{
 	}
 
 	public function getPersonne($numPersonne){
-
 		$sql = 'SELECT per_num, per_nom, per_prenom, per_tel, per_mail, per_login FROM personne WHERE per_num = :num';
 
 		$requete = $this->db->prepare($sql);
