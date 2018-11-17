@@ -76,8 +76,8 @@ if(!isset($_SESSION['personne'])){
     }else{
       echo "<p><img class='icone' src='image/erreur.png' alt='Erreur suppression'>Erreur interne : La personne '<strong>".$personne->getPrenomPersonne()." ".$personne->getNomPersonne()."</strong>' n'a pu être modifiée</p>";
     }
-    unset($_SESSION['personne']);
-    header("Refresh: 3;URL=index.php?page=3");
   }
+  unset($_SESSION['personne']);
+  header("Refresh: 3;URL=index.php?page=3");
 }
   ?>

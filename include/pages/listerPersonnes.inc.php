@@ -2,6 +2,11 @@
 $pdo = new Mypdo();
 $personneManager = new PersonneManager($pdo);
 
+if(isset($_SESSION['login'])){ ?>
+  <a id="lienPassword" href="index.php?page=13">Modifier mon mot de passe</a>
+<?php
+}
+
 if(empty($_GET['id'])){
 
   $personnes = $personneManager->getAllPersonnes();

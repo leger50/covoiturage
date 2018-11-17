@@ -63,28 +63,33 @@ case 8:
 //
 case 9:
 	// inclure ici la page proposer trajet
-		
-		include_once('pages/ProposerTrajet.inc.php');		
+
+		include_once('pages/ProposerTrajet.inc.php');
     break;
 case 10:
 	// inclure ici la page rechercher trajet
-			
-		include_once('pages/ChercherTrajet.inc.php');		
-	
+
+		include_once('pages/ChercherTrajet.inc.php');
+
     break;
-    
+
 case 11:
 	// inclure ici la page de connexion
 	include_once('pages/Connexion.inc.php');
     break;
 
 case 12:
-	// inclure ici la page de déconnexion
+	// inclure ici la page de dï¿½connexion
 	include_once('pages/Deconnexion.inc.php');
-    break;    
-    
+    break;
+
+case 13:
+	// inclure ici la page de dï¿½connexion
+	include_once('pages/modifierPassword.inc.php');
+    break;
+
 default : 	include_once('pages/accueil.inc.php');
 }
-	
+
 ?>
 </div>

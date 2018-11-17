@@ -46,6 +46,20 @@ class PersonneManager{
 		return $retour;
 	}
 
+	public function updatePasswordOfPersonne($idPersonne, $passwordProtected){
+		$sql = 'UPDATE personne SET per_pwd = :passwd
+						WHERE per_num = :num';
+		$requete = $this->db->prepare($sql);
+
+		$requete->bindValue(':num', $idPersonne);
+		$requete->bindValue(':passwd', $passwordProtected);
+
+		$retour=$requete->execute();
+		$requete->closeCursor();
+
+		return $retour;
+	}
+
 	public function supprimerPersonne($idPersonne){
 
 			$sql = 'DELETE FROM avis WHERE per_num = :num';
