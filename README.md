@@ -15,6 +15,8 @@ Classes css :
 -icone
 
 A faire :
+- css lister personne (lien mot de passe)
+- tester sur le serveur
 - css pour chaque page (comme dans le livret)
 - passer en private les fonctions non publics
 - soigner gestion des erreurs (code retour : Ville/Parcours)
