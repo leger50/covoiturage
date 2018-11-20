@@ -44,7 +44,7 @@ class AvisManager{
 		if($avis != null){
 			return $avis->avi_comm;
 		}else{
-			return "Non noté";
+			return "Aucun commentaire";
 		}
 	}
 }

@@ -35,7 +35,7 @@
 
     <form method="post" action="#">
 
-      <label for="ville_depart">Ville de départ :<?php echo $ville->getNomVille();?> </label>
+      <label for="ville_depart">Ville de départ : <?php echo $ville->getNomVille();?> </label>
         <input type="hidden" id="ville_depart" name="ville_depart" value=<?php echo $ville->getNumVille();?>/>
       </br>
 
