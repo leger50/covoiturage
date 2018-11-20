@@ -1,6 +1,5 @@
 <?php
 class EtudiantManager{
-	//echo $pdo->lastInsertId();
 	private $db;
 
 	public function __construct($db){
@@ -27,7 +26,7 @@ class EtudiantManager{
 		}
 	}
 
-	public function addPersonneEtudiante($personne){
+	private function addPersonneEtudiante($personne){
 		$personneManager = new PersonneManager($this->db);
 		$retour = $personneManager->addPersonne($personne);
 		return $retour;

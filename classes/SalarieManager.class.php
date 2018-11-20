@@ -27,7 +27,7 @@ class SalarieManager{
 		}
 	}
 
-	public function addPersonneSalarie($personne){
+	private function addPersonneSalarie($personne){
 		$personneManager = new PersonneManager($this->db);
 		$retour = $personneManager->addPersonne($personne);
 		return $retour;

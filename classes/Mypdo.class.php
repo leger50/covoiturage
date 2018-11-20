@@ -6,7 +6,7 @@ class Mypdo extends PDO
 
 	public function __construct ()
 	{
-	 // le param�trage de cette classe se fait dans le fichier config.inc.php
+	 // le paramétrage de cette classe se fait dans le fichier config.inc.php
 		if (ENV=='dev'){
 			$bool=true;
 		}

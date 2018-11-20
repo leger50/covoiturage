@@ -14,9 +14,7 @@ if (!isset($_SESSION['login'])){
         unset($_SESSION['nbAlea1']);
         unset($_SESSION['nbAlea2']);
 
-        echo "<p><img class='icone' src='image/valid.png' alt='Validation connexion'> Vous avez été connecté </p>";
-        echo "<p>Redirection automatique dans 2 secondes</p>";
-        header("Refresh: 2;URL=index.php");
+        header('Location: index.php');
 
       }else{
         echo "<div class='messageErreur'><p>Captcha invalide</p></div>";
@@ -57,8 +55,6 @@ if (!isset($_SESSION['login'])){
 <?php
   }else{
     session_destroy();
-    echo "<p>Vous avez bien été déconnecté !</p>";
-    echo "<p><img class = 'icone' src='image/valid.png' alt='Validation déconnexion'> Redirection automatique dans 2 secondes</p>";
-    header("Refresh: 2;URL=index.php");
+    header('Location: index.php');
   }
 ?>
