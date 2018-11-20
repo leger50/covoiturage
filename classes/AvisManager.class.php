@@ -6,23 +6,6 @@ class AvisManager{
 		$this->db = $db;
 	}
 
-	/*public function addVille($ville){
-		if($this->villeExiste($ville)){
-			return false;
-
-		}else{
-			$sql = 'INSERT INTO ville(vil_nom) VALUES (:ville)';
-			$requete = $this->db->prepare($sql);
-
-			$requete->bindValue(':ville', $ville->getNomVille());
-
-			$retour=$requete->execute();
-			$requete->closeCursor();
-
-			return $retour;
-		}
-	}*/
-
 	public function getAverageOfPerson($personne){
 
 		$sql = 'SELECT ROUND(AVG(avi_note), 1) as moyenne FROM avis WHERE per_num = :numPersonne';
